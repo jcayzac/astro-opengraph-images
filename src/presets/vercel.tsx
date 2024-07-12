@@ -1,7 +1,7 @@
-import React from "react";
+import type { VNode } from "preact";
 import type { RenderFunctionInput } from "../types.js";
 
-export function vercel({ title }: RenderFunctionInput): Promise<React.ReactNode> {
+export function vercel({ title }: RenderFunctionInput): Promise<VNode> {
   return Promise.resolve(
     <div
       style={{

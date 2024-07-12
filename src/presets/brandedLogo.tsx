@@ -1,8 +1,8 @@
-import React from "react";
+import type { VNode } from "preact";
 import type { RenderFunctionInput } from "../types.js";
 
 // from https://fullstackheroes.com/resources/vercel-og-templates/branded-logo/
-export async function brandedLogo({ title }: RenderFunctionInput): Promise<React.ReactNode> {
+export async function brandedLogo({ title }: RenderFunctionInput): Promise<VNode> {
   const twj = (await import("tw-to-css")).twj;
 
   return (

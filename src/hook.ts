@@ -5,7 +5,7 @@ import * as fs from "fs";
 import type { AstroIntegrationLogger } from "astro";
 import { extract } from "./extract.js";
 import { getFilePath } from "./util.js";
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from "url";
 import path from "path";
 
 export async function buildDoneHook({
@@ -41,8 +41,8 @@ async function handlePage({ page, options, render, dir, logger }: HandlePageInpu
   const html = fs.readFileSync(htmlFile).toString();
   const pageDetails = extract(html);
 
-  const reactNode = await render({ ...page, ...pageDetails });
-  const svg = await satori(reactNode, options);
+  const node = (await render({ ...page, ...pageDetails })) as unknown;
+  const svg = await satori(node, options);
   const resvg = new Resvg(svg, {
     font: {
       loadSystemFonts: false,
@@ -58,7 +58,7 @@ async function handlePage({ page, options, render, dir, logger }: HandlePageInpu
   // remove leading dist/ from the path
   fs.writeFileSync(pngFile, resvg.render().asPng());
   pngFile = pngFile.replace(path.join(process.cwd(), "dist"), "").replace(/\\/g, "/");
-  if(pngFile.startsWith("/")) pngFile = pngFile.slice(1);
+  if (pngFile.startsWith("/")) pngFile = pngFile.slice(1);
 
   // convert the image path to a URL
   let imageUrl = new URL(pageDetails.image).pathname;

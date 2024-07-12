@@ -1,5 +1,5 @@
 import type { AstroIntegrationLogger, RouteData } from "astro";
-import type { ReactNode } from "react";
+import type { VNode } from "preact";
 
 export interface IntegrationInput {
   options: DefaultIntegrationOptions;
@@ -37,8 +37,8 @@ export type RenderFunctionInput = {
   pathname: string;
 } & PageDetails;
 
-/** A function that renders some page input to React */
-export type RenderFunction = (input: RenderFunctionInput) => Promise<ReactNode>;
+/** A function that renders some page input to preact */
+export type RenderFunction = (input: RenderFunctionInput) => Promise<VNode>;
 
 /** Basic information about a page */
 export interface PageDetails {

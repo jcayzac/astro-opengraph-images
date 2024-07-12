@@ -1,7 +1,7 @@
-import React from "react";
+import type { VNode } from "preact";
 import type { RenderFunctionInput } from "../types.js";
 
-export async function tailwind({ title, description }: RenderFunctionInput): Promise<React.ReactNode> {
+export async function tailwind({ title, description }: RenderFunctionInput): Promise<VNode> {
   const twj = (await import("tw-to-css")).twj;
 
   return (

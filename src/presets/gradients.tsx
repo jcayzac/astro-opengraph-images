@@ -1,7 +1,7 @@
-import React from "react";
+import type { VNode } from "preact";
 import type { RenderFunctionInput } from "../types.js";
 
-export function gradients({ title, description }: RenderFunctionInput): Promise<React.ReactNode> {
+export function gradients({ title, description }: RenderFunctionInput): Promise<VNode> {
   return Promise.resolve(
     <div
       style={{

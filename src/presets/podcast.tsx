@@ -1,8 +1,8 @@
-import React from "react";
+import type { VNode } from "preact";
 import type { RenderFunctionInput } from "../types.js";
 
 // from https://fullstackheroes.com/resources/vercel-og-templates/podcast/
-export async function podcast({ title }: RenderFunctionInput): Promise<React.ReactNode> {
+export async function podcast({ title }: RenderFunctionInput): Promise<VNode> {
   const image = "https://static.wikia.nocookie.net/arresteddevelopment/images/4/42/5x15_-_Michael_Bluth_01.jpg";
 
   const twj = (await import("tw-to-css")).twj;

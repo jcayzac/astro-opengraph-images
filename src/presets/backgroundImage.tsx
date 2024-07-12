@@ -1,8 +1,8 @@
-import React from "react";
+import type { VNode } from "preact";
 import type { RenderFunctionInput } from "../types.js";
 
 // from https://fullstackheroes.com/resources/vercel-og-templates/full-bg-image/
-export async function backgroundImage({ title }: RenderFunctionInput): Promise<React.ReactNode> {
+export async function backgroundImage({ title }: RenderFunctionInput): Promise<VNode> {
   const image = "https://picsum.photos/seed/picsum/1200/627";
 
   const twj = (await import("tw-to-css")).twj;
